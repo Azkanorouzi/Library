@@ -7,5 +7,51 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body></body>
+  <body class="h-screen w-screen">
+    <header>
+      <nav
+        class="w-full bg-gradient-to-r from-stone-800 to-blue-950 text-orange-500 flex justify-between p-12 lg:text-5xl items-center"
+      >
+        <h1>📕 Library</h1>
+        <button>🚪 Sign in</button>
+        <button class="lg:hidden">|||</button>
+      </nav>
+    </header>
+    <main>
+      <aside class="bg-orange-500 w-">
+        <h2>🏆 YOUR PROGRESS 🏆</h2>
+        <!-- Pages -->
+        <section>
+          <p><span>📚 Books:</span> <span>0</span></p>
+          <p><span>✅ Completed books:</span> <span>0</span></p>
+          <p><span>📑 Total pages:</span> <span>0</span></p>
+          <p><span>✅ Completed pages:</span> <span>0</span></p>
+        </section>
+      </aside>
+      <!-- Main section -->
+      <section>
+        <div>
+          <p>+</p>
+        </div>
+        <article>
+          <div>
+            <button>📝 Edit</button>
+            <button>❌ Remove</button>
+          </div>
+          <div></div>
+          <div>
+            <button>-</button>
+            <button>+</button>
+            <button>DONE</button>
+          </div>
+        </article>
+        <!-- Progress bar -->
+        <div class="progressbar">
+          <div class="progress">0%</div>
+        </div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
 </html>
