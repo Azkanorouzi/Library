@@ -52,9 +52,4 @@ APPLICATION.completedPagesInput.addEventListener('blur', () => {
     document.querySelector('.completed-pages-input').value = BOOK_INFO.MaxPages
     BOOK_INFO.initialCompletedPages = BOOK_INFO.MaxPages
   }
-  if (Number.isNaN(BOOK_INFO.initialCompletedPages) || )
 })
-
-function Book(title) {
-  this.title = title
-}
