@@ -83,7 +83,7 @@ APPLICATION.imageUrlInput.addEventListener('blur', () => {
     !NEW_BOOK_INFO.imageUrl.startsWith('http://') &&
     NEW_BOOK_INFO.imageUrl
   ) {
-    const fixedUrl = 'https://' + BOOK_INFO.imageUrl
+    const fixedUrl = 'https://' + NEW_BOOK_INFO.imageUrl
     document.querySelector('.image-url-input').value = fixedUrl
     NEW_BOOK_INFO.imageUrl = fixedUrl
   }
@@ -117,7 +117,7 @@ Book.getCurrentFinishedNumber = function () {
   return BOOKS.filter((book) => book.completedPages === book.pages).length
 }
 // Adds one completed page
-Book.Book.prototype.addCompletedPage = function () {
+Book.prototype.addCompletedPage = function () {
   this.completedPages++
   return this
 }
