@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.add-book-module {
+  width: 500px;
+  display: grid;
+  gap: 1rem;
+}
+.module-hidden {
+  opacity: 0;
+  z-index: 0;
+  pointer-events: none;
+}
