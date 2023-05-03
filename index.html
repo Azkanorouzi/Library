@@ -70,14 +70,15 @@
     >
       <div class="add-book-module bg-orange-600 border-2 border-orange-50 p-7">
         <h3 class="text-white text-center font-bold text-3xl">NEW BOOK INFO</h3>
-        <form action="put" class="grid gap-2">
+        <form action="#" method="push" class="grid gap-2 new-book-form">
           <label for="author" class="text-2xl text-white">
             author
             <input
               type="text"
               name="author"
-              class="p-2 border-none outline-none w-full bg-slate-700 text-white"
+              class="p-2 border-none outline-none w-full bg-slate-700 text-white name-input"
               id="author"
+              required
             />
           </label>
 
@@ -86,8 +87,9 @@
             <input
               type="text"
               name="title"
-              class="p-2 border-none outline-none w-full bg-slate-700 text-white"
+              class="p-2 border-none outline-none w-full bg-slate-700 text-white title-input"
               id="title"
+              required
             />
           </label>
           <label for="pages" class="text-2xl text-white">
@@ -98,6 +100,7 @@
               class="p-2 border-none outline-none w-full bg-slate-700 text-white pages-input"
               id="pages"
               min="10"
+              required
             />
           </label>
           <label for="completed-pages" class="text-2xl text-white">
@@ -107,15 +110,17 @@
               name="completed"
               class="p-2 border-none outline-none w-full bg-slate-700 text-white completed-pages-input"
               id="completed-pages"
+              required
             />
           </label>
           <label for="img-url" class="text-2xl text-white">
             Book image (url)
             <input
-              type="url"
+              type="text"
               name="img-url"
-              class="p-2 border-none outline-none w-full bg-slate-700 text-white"
+              class="p-2 border-none outline-none w-full bg-slate-700 text-white image-url-input"
               id="img-url"
+              required
             />
           </label>
           <!-- Buttons -->
