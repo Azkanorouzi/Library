@@ -19,7 +19,7 @@ const HELPER_FUNCTIONS = {
   },
 }
 // Stores book information before finalization
-const NEW_BOOK_INFO = {}
+let newBookInfo = {}
 // Stores all book's information
 const BOOKS = []
 // Hamburger menu settings
@@ -47,54 +47,56 @@ APPLICATION.module.addEventListener('click', (event) => {
 })
 // Setting max completed pages to the number of book's pages
 APPLICATION.pagesInput.addEventListener('blur', () => {
-  NEW_BOOK_INFO.MaxPages = +APPLICATION.pagesInput.value
+  newBookInfo.MaxPages = +APPLICATION.pagesInput.value
   // Don't allowing the number of pages to go less than 10
-  if (NEW_BOOK_INFO.MaxPages < 10) {
+  if (newBookInfo.MaxPages < 10) {
     document.querySelector('.pages-input').value = '10'
-    NEW_BOOK_INFO.MaxPages = 10
+    newBookInfo.MaxPages = 10
   }
 })
 APPLICATION.completedPagesInput.addEventListener('blur', () => {
-  NEW_BOOK_INFO.initialCompletedPages = Number.parseInt(
+  newBookInfo.initialCompletedPages = Number.parseInt(
     APPLICATION.completedPagesInput.value
   )
-  console.log(NEW_BOOK_INFO.initialCompletedPages)
+  console.log(newBookInfo.initialCompletedPages)
   // In case user enters a number that's greater than specified max-pages of the book
-  if (+NEW_BOOK_INFO.initialCompletedPages > +NEW_BOOK_INFO.MaxPages) {
+  if (+newBookInfo.initialCompletedPages > +newBookInfo.MaxPages) {
     document.querySelector('.completed-pages-input').value =
-      NEW_BOOK_INFO.MaxPages
-    NEW_BOOK_INFO.initialCompletedPages = NEW_BOOK_INFO.MaxPages
+      newBookInfo.MaxPages
+    newBookInfo.initialCompletedPages = newBookInfo.MaxPages
   }
   // In case user enters a number that's less than 0 or includes none-numerical characters
   if (
-    Number.isNaN(NEW_BOOK_INFO.initialCompletedPages) ||
-    +NEW_BOOK_INFO.initialCompletedPages < 0
+    Number.isNaN(newBookInfo.initialCompletedPages) ||
+    +newBookInfo.initialCompletedPages < 0
   ) {
     document.querySelector('.completed-pages-input').value = 0
-    NEW_BOOK_INFO.initialCompletedPages = 0
+    newBookInfo.initialCompletedPages = 0
   }
 })
 APPLICATION.imageUrlInput.addEventListener('blur', () => {
   console.log(APPLICATION.imageUrlInput)
-  NEW_BOOK_INFO.imageUrl = APPLICATION.imageUrlInput.value.trim()
+  newBookInfo.imageUrl = APPLICATION.imageUrlInput.value.trim()
   // adds https:// if http:// or https:// is omitted
   if (
-    !NEW_BOOK_INFO.imageUrl.startsWith('https://') &&
-    !NEW_BOOK_INFO.imageUrl.startsWith('http://') &&
-    NEW_BOOK_INFO.imageUrl
+    !newBookInfo.imageUrl.startsWith('https://') &&
+    !newBookInfo.imageUrl.startsWith('http://') &&
+    newBookInfo.imageUrl
   ) {
-    const fixedUrl = 'https://' + NEW_BOOK_INFO.imageUrl
+    const fixedUrl = 'https://' + newBookInfo.imageUrl
     document.querySelector('.image-url-input').value = fixedUrl
-    NEW_BOOK_INFO.imageUrl = fixedUrl
+    newBookInfo.imageUrl = fixedUrl
   }
 })
 // Module add button
 APPLICATION.moduleAddButton.addEventListener('click', (e) => {
-  NEW_BOOK_INFO.title = APPLICATION.titleInput.value || 'Untitled'
-  NEW_BOOK_INFO.name = APPLICATION.nameInput.value || 'Unknown'
-  if (HELPER_FUNCTIONS.isValidBook(NEW_BOOK_INFO)) {
+  newBookInfo.title = APPLICATION.titleInput.value || 'Untitled'
+  newBookInfo.name = APPLICATION.nameInput.value || 'Unknown'
+  if (HELPER_FUNCTIONS.isValidBook(newBookInfo)) {
     APPLICATION.module.classList.add('module-hidden')
     APPLICATION.newBookForm.reset()
+    BOOKS.push({ ...newBookInfo })
+    newBookInfo = {}
   }
 })
 function Book(title, author, pages, completedPages, imageUrl) {
@@ -113,8 +115,22 @@ Book.getCurrentFinishedNumber = function () {
   return BOOKS.filter((book) => book.completedPages === book.pages).length
 }
 // Returns current number of finished books
-Book.getCurrentFinishedNumber = function () {
+Book.getCurrentPages = function () {
   return BOOKS.filter((book) => book.completedPages === book.pages).length
+}
+// Returns total number of finished pages
+Book.getCurrentFinishedPages = function () {
+  return BOOKS.reduce((sum, book) => {
+    sum += book.
+    return sum
+  }, 0)
+}
+// Returns total number of finished pages
+Book.getCurrentFinishedNumber = function () {
+  return BOOKS.reduce((sum, book) => {
+    sum += book.completedPages
+    return sum
+  }, 0)
 }
 // Adds one completed page
 Book.prototype.addCompletedPage = function () {
