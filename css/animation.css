@@ -72,3 +72,9 @@ aside {
 .dom-book:hover::after {
   height: 100%;
 }
+.flex-1 {
+  flex: 1;
+}
+.done {
+  background: darkred;
+}

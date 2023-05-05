@@ -194,7 +194,7 @@ function createDomBook(book) {
   >
     <button class="flex-1 p-2 bg-blue-900 subtract-button" type="button">-</button>
     <button class="flex-1 p-2 bg-orange-400 add-button" type="button">+</button>
-    <button class="flex-1 p-2 bg-orange-900 done" type="button">DONE</button>
+    <button class="flex-1 p-2 done" type="button">DONE</button>
   </div>
 </article>`
 }
