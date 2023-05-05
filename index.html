@@ -29,10 +29,19 @@
         <h2 class="bg-slate-800 p-2 mb-12">🏆 YOUR PROGRESS</h2>
         <!-- Pages -->
         <section class="bg-slate-800 leading-10 p-2 grid gap-10 xl:gap-3">
-          <p><span>📚 Books:</span> <span>0</span></p>
-          <p><span>✅ Completed books:</span> <span>0</span></p>
-          <p><span>📑 Total pages:</span> <span>0</span></p>
-          <p><span>✅ Completed pages:</span> <span>0</span></p>
+          <p><span>📚 Books:</span> <span class="number-of-books">0</span></p>
+          <p>
+            <span>✅ Completed books:</span>
+            <span class="number-of-completed-books">0</span>
+          </p>
+          <p>
+            <span>📑 Total pages:</span>
+            <span class="number-of-total-pages">0</span>
+          </p>
+          <p>
+            <span>✅ Completed pages:</span>
+            <span class="number-of-completed-pages">0</span>
+          </p>
         </section>
       </aside>
       <section
@@ -43,26 +52,6 @@
         >
           <p class="plus-sign">+</p>
         </div>
-        <article
-          class="grid-item bg-slate-800 text-white relative overflow-hidden border-2 border-orange-600"
-        >
-          <div
-            class="absolute top-0 left-0 right-0 p-2 flex justify-between text-xl bg-slate-700 bg-opacity-90 border-b-4 border-orange-600"
-          >
-            <button class="text-left edit-button" type="button">📝</button>
-            <button class="text-right close-button" type="button">❌</button>
-          </div>
-          <div>
-            <img src="assets/images/book1.jpg" alt="book1" class="w-full" />
-          </div>
-          <div
-            class="w-full absolute bottom-0 left-0 right-0 z-10 bg-orange-600 flex"
-          >
-            <button class="flex-1 p-2 bg-blue-900" type="button">-</button>
-            <button class="flex-1 p-2 bg-orange-400" type="button">+</button>
-            <button class="flex-1 p-2 bg-orange-900" type="button">DONE</button>
-          </div>
-        </article>
       </section>
     </main>
     <div
@@ -110,16 +99,6 @@
               name="completed"
               class="p-2 border-none outline-none w-full bg-slate-700 text-white completed-pages-input"
               id="completed-pages"
-              required
-            />
-          </label>
-          <label for="img-url" class="text-2xl text-white">
-            Book image (url)
-            <input
-              type="text"
-              name="img-url"
-              class="p-2 border-none outline-none w-full bg-slate-700 text-white image-url-input"
-              id="img-url"
               required
             />
           </label>
