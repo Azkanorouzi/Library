@@ -30,3 +30,45 @@
 aside {
   transition: 0.5s;
 }
+
+.fadeIn {
+  animation: fadeIn 1s forwards;
+}
+.fadeIn-text {
+  animation: fadeIn-text 1s forwards;
+}
+.fade-out {
+  animation: fadeIn 1s reverse forwards;
+}
+@keyframes fadeIn {
+  0% {
+    transform: translateX(-50px) scale(0.9);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0px) scale(1);
+    opacity: 1;
+  }
+}
+@keyframes fadeIn-text {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.dom-book::after {
+  content: '';
+  position: absolute;
+  height: 0%;
+  width: 100%;
+  background: darkblue;
+  z-index: -1;
+  transition: 1s;
+  bottom: 0;
+}
+.dom-book:hover::after {
+  height: 100%;
+}

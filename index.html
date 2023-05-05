@@ -4,10 +4,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Book library</title>
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/grid.css" />
     <link rel="stylesheet" href="./css/animation.css" />
+    link:
   </head>
   <body class="h-screen w-screen">
     <header>
@@ -24,23 +25,29 @@
     <main class="flex min-h-full relative">
       <!-- Side bar -->
       <aside
-        class="absolute z-30 top-0 left-0 right-0 bottom-0 bg-gradient-to-r from-orange-500 to-orange-400 w-full xl:static xl:w-1/4 p-5 text-5xl xl:text-lg xl:text-1xl text-orange-100 text-center -translate-x-full xl:-translate-x-0"
+        class="absolute z-30 top-0 left-0 right-0 bottom-0 bg-gradient-to-r from-orange-500 to-orange-400 w-full xl:static xl:w-1/4 p-5 text-5xl xl:text-lg xl:text-1xl text-orange-100 text-center -translate-x-full xl:-translate-x-0 fixed"
       >
-        <h2 class="bg-slate-800 p-2 mb-12">🏆 YOUR PROGRESS</h2>
+        <h2 class="bg-slate-800 p-2 mb-12 fadeIn">🏆 YOUR PROGRESS</h2>
         <!-- Pages -->
         <section class="bg-slate-800 leading-10 p-2 grid gap-10 xl:gap-3">
-          <p><span>📚 Books:</span> <span class="number-of-books">0</span></p>
-          <p>
+          <p class="fadeIn-text">
+            <span>📚 Books:</span> <span class="number-of-books">0</span>
+          </p>
+          <p class="fadeIn-text">
             <span>✅ Completed books:</span>
             <span class="number-of-completed-books">0</span>
           </p>
-          <p>
+          <p class="fadeIn-text">
             <span>📑 Total pages:</span>
             <span class="number-of-total-pages">0</span>
           </p>
-          <p>
+          <p class="fadeIn-text">
             <span>✅ Completed pages:</span>
             <span class="number-of-completed-pages">0</span>
+          </p>
+          <p class="fadeIn-text">
+            <span>progress:</span>
+            <span class="number-of-completed-pages">0</span>%
           </p>
         </section>
       </aside>
@@ -55,7 +62,7 @@
       </section>
     </main>
     <div
-      class="module bg-slate-700 bg-opacity-80 fixed top-0 left-0 right-0 bottom-0 z-40 flex justify-center items-center module-hidden module-close"
+      class="module bg-slate-700 bg-opacity-80 fixed top-0 left-0 right-0 bottom-0 z-40 flex justify-center items-center module-hidden module-close backdrop-blur-md"
     >
       <div class="add-book-module bg-orange-600 border-2 border-orange-50 p-7">
         <h3 class="text-white text-center font-bold text-3xl">NEW BOOK INFO</h3>

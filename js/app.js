@@ -30,9 +30,11 @@ window.addEventListener('beforeunload', function () {
 })
 // rendering books that are stored in localStorage
 window.addEventListener('load', function () {
+  console.log(JSON.parse(this.localStorage.getItem('booksHistory')))
   BOOKS = JSON.parse(this.localStorage.getItem('booksHistory'))
-  console.log(BOOKS)
   BOOKS.forEach((book) => renderDomBook(createDomBook(book)))
+  console.log(BOOKS)
+  changeBookInformation()
 })
 
 // Hamburger menu settings
@@ -165,8 +167,8 @@ Book.prototype.done = function () {
 function createDomBook(book) {
   book.rendered = true
   return `<article
-  class="grid-item bg-slate-800 text-white relative overflow-hidden border-2 border-orange-600 flex justify-center items-center dom-book"
-  data-id="${book.id}"
+  class="grid-item bg-slate-800 text-white relative overflow-hidden border-2 border-orange-600 flex justify-center items-center dom-book fadeIn"
+  data-id="${book.id} "
 >
   <div
     class="absolute top-0 left-0 right-0 p-2 flex justify-between text-xl bg-slate-700 bg-opacity-90 border-b-4 border-orange-600"
@@ -202,10 +204,9 @@ function listenToDomBook(domBook) {
     const book = BOOKS.find((b) => +b.id === +bookId)
     // When user clicks on close button
     if (e.target.classList.contains('close-button') && book) {
-      console.log(BOOKS.indexOf(book))
       BOOKS.splice(BOOKS.indexOf(book), 1)
       domBook.remove()
-      console.log(BOOKS)
+      changeBookInformation()
     }
     // When user clicks on add button
     if (e.target.classList.contains('add-button') && book) {
