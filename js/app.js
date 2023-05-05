@@ -23,18 +23,21 @@ const HELPER_FUNCTIONS = {
 let newBookInfo = {}
 // Stores all book's information
 let BOOKS = []
+// rendering books that are stored in localStorage
+window.addEventListener('load', function () {
+  if (localStorage) {
+    BOOKS = JSON.parse(this.localStorage.getItem('booksHistory'))
+    BOOKS.forEach((book) => renderDomBook(createDomBook(book)))
+    console.log(BOOKS)
+    changeBookInformation()
+  }
+})
 // Local storage
 // saving the BOOKS object inside localStorage each time user closes the tab
 window.addEventListener('beforeunload', function () {
-  localStorage.setItem('booksHistory', JSON.stringify(BOOKS))
-})
-// rendering books that are stored in localStorage
-window.addEventListener('load', function () {
-  console.log(JSON.parse(this.localStorage.getItem('booksHistory')))
-  BOOKS = JSON.parse(this.localStorage.getItem('booksHistory'))
-  BOOKS.forEach((book) => renderDomBook(createDomBook(book)))
-  console.log(BOOKS)
-  changeBookInformation()
+  if (localStorage) {
+    localStorage.setItem('booksHistory', JSON.stringify(BOOKS))
+  }
 })
 
 // Hamburger menu settings
@@ -105,6 +108,9 @@ APPLICATION.moduleAddButton.addEventListener('click', (e) => {
     BOOKS.push(newBook)
     changeBookInformation()
     newBookInfo = {}
+    if (localStorage) {
+      localStorage.setItem('booksHistory', JSON.stringify(BOOKS))
+    }
   }
   console.log(BOOKS)
 })
